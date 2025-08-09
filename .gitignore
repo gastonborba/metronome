@@ -1,0 +1,58 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# ==================================
+# Android Studio & IntelliJ
+# ==================================
+
+.idea/
+*.ipr
+*.iws
+.idea/*
+
+# ==================================
+# Build files
+# ==================================
+
+/build/
+/*/build/
+**/build/
+
+# ==================================
+# Gradle
+# ==================================
+
+.gradle/
+/**/build/
+!gradle-wrapper.jar
+
+# ==================================
+# APKs & Signing
+# ==================================
+
+*.jks
+*.keystore
+*.apk
+*.ap_
+
+# Ignore release files:
+app/build/outputs/
+
+# Ignore the entire 'release' folder
+*/release/
+
+*/debug/
+

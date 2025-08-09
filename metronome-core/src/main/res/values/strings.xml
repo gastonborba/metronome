@@ -1,0 +1,7 @@
+<resources>
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="metronome_running">Metronome running</string>
+    <string name="decrease_bpm">Decrease BPM</string>
+    <string name="increase_bpm">Increase BPM</string>
+</resources>

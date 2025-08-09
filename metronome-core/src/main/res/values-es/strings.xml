@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="play">Iniciar</string>
+    <string name="pause">Pausar</string>
+    <string name="metronome_running">Metrónomo en funcionamiento</string>
+    <string name="decrease_bpm">Disminuir BPM</string>
+    <string name="increase_bpm">Aumentar BPM</string>
+</resources>
