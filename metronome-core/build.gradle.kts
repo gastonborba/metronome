@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.mavenPublish)
 }
 
 android {
@@ -53,4 +54,30 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+                groupId = "rocks.borbit"
+                artifactId = "metronome-core"
+                version = "1.0.0"
+            }
+        }
+
+        repositories {
+            maven {
+                name = "GitHubPackages"
+                url = uri("https://maven.pkg.github.com/gastonborba/metronome")
+                credentials {
+                    username =
+                        project.findProperty("gpr.user") as String? ?: System.getenv("GPR_USER")
+                    password =
+                        project.findProperty("gpr.key") as String? ?: System.getenv("GPR_KEY")
+                }
+            }
+        }
+    }
 }

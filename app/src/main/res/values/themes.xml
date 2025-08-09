@@ -2,4 +2,10 @@
 <resources>
 
     <style name="Theme.Metronome" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <style name="Theme.Metronome.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_screen_icon</item>
+        <item name="postSplashScreenTheme">@style/Theme.Metronome</item>
+    </style>
+
 </resources>

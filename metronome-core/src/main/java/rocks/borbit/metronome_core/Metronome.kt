@@ -6,14 +6,12 @@ import android.media.AudioTrack
 import kotlin.math.PI
 import kotlin.math.sin
 import android.content.Context
-import android.util.Log
 import java.io.BufferedInputStream
 import java.io.DataInputStream
 
 
 class Metronome(
-    private val context: Context,
-    private val onBeat: (Int) -> Unit
+    private val context: Context
 ) {
     private var bpm = 120
     private var beatsPerMeasure = 4
@@ -25,7 +23,6 @@ class Metronome(
     private var clickSample: ShortArray = shortArrayOf()
 
     init {
-        // Cargar WAV al iniciar
         clickSample = loadWavFromRaw(R.raw.tap_click)
     }
 
@@ -84,7 +81,7 @@ class Metronome(
 
         for (beat in 0 until beatsPerMeasure) {
             val startIndex = beat * samplesPerBeat
-            // Copiar clickSample dentro del buffer en la posición correspondiente
+
             for (i in clickSample.indices) {
                 val pos = startIndex + i
                 if (pos < buffer.size) {
@@ -101,7 +98,6 @@ class Metronome(
             context.resources.openRawResource(resId).use { inputStream ->
                 val dis = DataInputStream(BufferedInputStream(inputStream))
 
-                // Saltar cabecera WAV (44 bytes estándar)
                 val header = ByteArray(44)
                 dis.readFully(header)
 
@@ -115,8 +111,6 @@ class Metronome(
                 return pcmData.toShortArray()
             }
         } catch (e: Exception) {
-            Log.e("Metronome", "Error loading wav", e)
-            // fallback: sonido simple si falla
             return generateFallbackClick()
         }
     }

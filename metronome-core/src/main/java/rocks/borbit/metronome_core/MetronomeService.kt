@@ -16,7 +16,7 @@ class MetronomeService : Service() {
 
     override fun onCreate() {
         super.onCreate()
-        metronome = Metronome(this) { /* Callback */ }
+        metronome = Metronome(this)
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
